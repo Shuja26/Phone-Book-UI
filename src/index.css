@@ -1,0 +1,250 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin+Sketch&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap');
+body {
+  margin: 0;
+  background-color: #e8cb38;
+  background-image: url("./components/bg.jpg");
+  background-position : center; 
+  background-repeat: no-repeat;
+  background-size: auto;
+  font-family: 'Cabin Sketch', cursive;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: ;
+}
+
+.alert {
+  padding: 20px;
+  background-color: #f44336; /* Red */
+  color: white;
+  margin-bottom: 15px;
+}
+
+.header {
+  font-size: 35px;
+  display: block;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.ele {
+  font-size: 35px;
+}
+
+.icn {
+  font-size: 20px;
+  margin-top: 5px;
+  cursor: pointer;
+}
+/* From uiverse.io by @nikk7007 */
+/*button {
+ padding: 0.8em 1.8em;
+ border: 2px solid #17C3B2;
+ position: relative;
+ overflow: hidden;
+ background-color: transparent;
+ text-align: center;
+ text-transform: uppercase;
+ font-size: 16px;
+ transition: .3s;
+ z-index: 1;
+ font-family: inherit;
+ color: #17C3B2;
+}
+
+button::before {
+ content: '';
+ width: 0;
+ height: 300%;
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%) rotate(45deg);
+ background: #17C3B2;
+ transition: .5s ease;
+ display: block;
+ z-index: -1;
+}
+
+button:hover::before {
+ width: 105%;
+}
+
+button:hover {
+ color: #111;
+}*/
+/* From uiverse.io by @faizanullah1999 */
+
+
+/* From uiverse.io by @Botwe-Felix5820 */
+/*.btn {
+ height: 3em;
+ width: 8em;
+ border: none;
+ border-radius: 10em;
+ background: #016DD9;
+ font-size: 17px;
+ color: #ffffff;
+ font-family: inherit;
+ font-weight: 500;
+}
+
+.btn:hover {
+ animation: shake3856 0.3s linear infinite both;
+}*/
+/* From uiverse.io by @adamgiebl */
+.btn {
+ background: #FBCA1F;
+ font-family: inherit;
+ padding: 0.6em 1.3em;
+ font-weight: 900;
+ font-size: 20px;
+ border: 3px solid black;
+ border-radius: 0.4em;
+ box-shadow: 0.1em 0.1em;
+ margin-left: 90px;
+ margin-right: 50px;
+ cursor:  pointer;
+}
+
+.btn:hover {
+ transform: translate(-0.05em, -0.05em);
+ box-shadow: 0.15em 0.15em;
+}
+
+.btn:active {
+ transform: translate(0.05em, 0.05em);
+ box-shadow: 0.05em 0.05em;
+}
+
+/* From uiverse.io by @alexruix */
+.group {
+ display: flex;
+ line-height: 28px;
+ align-items: center;
+ position: relative;
+ max-width: 190px;
+}
+
+.input {
+ width: 30%;
+ height: 40px;
+ line-height: 28px;
+ border: 2px solid transparent;
+ border-radius: 8px;
+ outline: none;
+ background-color: #f3f3f4;
+ color: #0d0c22;
+ transition: .3s ease;
+  margin: 5px;
+  padding: 3px 7px;
+  font-size: 17px;
+}
+
+.input::placeholder {
+ color: #9e9ea7;
+}
+
+.input:focus, input:hover {
+ outline: none;
+ border-color: rgba(234,76,137,0.4);
+ background-color: #fff;
+ box-shadow: 0 0 0 4px rgb(234 76 137 / 10%);
+}
+
+.icon {
+ position: absolute;
+ left: 1rem;
+ fill: #9e9ea7;
+ width: 1rem;
+ height: 1rem;
+}
+
+
+.add-form {
+  margin-bottom: 40px;
+}
+
+.form-control {
+  margin: 20px 0;
+}
+
+.form-control label {
+  display: block;
+  font-size: 35px;
+font-family: 'Syne Mono', monospace;
+font-weight: bold;
+
+}
+
+.form-control input {
+  width: 50%;
+  height: 40px;
+  margin: 5px;
+  padding: 3px 7px;
+  font-size: 17px;
+}
+
+.form-control-check {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form-control-check label {
+  flex: 1;
+}
+
+.form-control-check input {
+  flex: 2;
+  height: 20px;
+}
+
+.dropdown{
+  max-width: 30%;
+  margin: auto;
+  padding: 10px;
+
+}
+
+
+
+@keyframes shake3856 {
+ 0% {
+  -webkit-transform: translate(0);
+  transform: translate(0);
+ }
+
+ 20% {
+  -webkit-transform: translate(-2px, 2px);
+  transform: translate(-2px, 2px);
+ }
+
+ 40% {
+  -webkit-transform: translate(-2px, -2px);
+  transform: translate(-2px, -2px);
+ }
+
+ 60% {
+  -webkit-transform: translate(2px, 2px);
+  transform: translate(2px, 2px);
+ }
+
+ 80% {
+  -webkit-transform: translate(2px, -2px);
+  transform: translate(2px, -2px);
+ }
+
+ 100% {
+  -webkit-transform: translate(0);
+  transform: translate(0);
+ }
+}
+
+
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
