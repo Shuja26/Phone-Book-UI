@@ -4,7 +4,8 @@ const Input = (props) => {
     <div>
     	<input type={props.type} className="input"
     	placeholder = {props.text}
-    	value = {props.entry} onChange={(e)=>props.onChange(e)}/>
+    	value = {props.entry} onChange={(e)=>props.onChange(e)}
+      defaultValue = {props.defaultValue}/>
     </div>
   )
 }

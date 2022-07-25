@@ -3,9 +3,10 @@ import Button from './Button'
 import Input from './Input'
 
 
-const AddContact = ({add, form}) => {
-  const[text, setText] = useState('')
-  const[number, setNumber] = useState('')
+const AddContact = ({add, form,name, ph_number, id}) => {
+  const[text, setText] = useState(name)
+  const[number, setNumber] = useState(ph_number)
+
 
   function nameFieldOnChange(e){
     setText(e.target.value)
@@ -16,7 +17,6 @@ const AddContact = ({add, form}) => {
   }
 
   const onSubmit = (e)=>{
-    console.log(e)
   	e.preventDefault()
   	if(!text) {
   		alert('Please enter a name')
@@ -36,15 +36,16 @@ const AddContact = ({add, form}) => {
     return
   }
 
+
   return (
     <div className='form-control'>
     	<div>
     		<label>Name</label>
-        <Input text ={'Name of contact'} value = {text} onChange={nameFieldOnChange} type={'text'}/>
+        <Input text ={'Name of contact'} value = {text} onChange={nameFieldOnChange} type={'text'} defaultValue={name}/>
     	</div>
     	<div>
     		<label>Number</label>
-        <Input text ={'Contact number'} value = {number} onChange={numberFieldOnChange}  type={'text'}/>
+        <Input text ={'Contact number'} value = {number} onChange={numberFieldOnChange}  type={'text'} defaultValue={ph_number}/>
     	</div>
       <Button text='Save' form={onSubmit}/>
     </div>
