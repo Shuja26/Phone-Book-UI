@@ -20,6 +20,29 @@ body {
   margin-bottom: 15px;
 }
 
+.success {
+  background-color: green;
+  margin: auto;
+  width: 50%;
+  height: auto;
+  color: white;
+  margin-top:20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #999;
+
+}
+
+.failure {
+  background-color: red;
+   margin: auto;
+  width: 50%;
+  height: auto;
+  color: white;
+  margin-top:20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #999;
+}
+
 .header {
   font-size: 35px;
   display: block;

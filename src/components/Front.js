@@ -8,6 +8,7 @@ import AddContact from './AddContact'
 import List from './List'
 import ConClass from './ConClass'
 import Button from './Button'
+import Alert from './Alert'
 
 
 const Front = (props) => {
@@ -20,6 +21,7 @@ const Front = (props) => {
   const[showEdit, setShowEdit] = useState('')
   const[editContact, setEditContact] = useState({})
   const[searchRes, setSearchRes] = useState([])
+  const[toast_options, setToast] = useState([])
 
   //Add contacts
   const addContact = (na, nu)=>{
@@ -31,14 +33,13 @@ const Front = (props) => {
   //Getting search result input as string
   const compare = (option)=>{
     if(!seatype){
-      alert('Select a search type')
-      return
+      showToast('Please select a search type!','failure')
+      return 
     }
     if(!contact){
-      alert('No contacts in your phonebook')
+      showToast('No contacts in your phonebook','failure')
       return
     }
-    setSearchRes([])
     setShowCon(false)
     setShowSearch(true)
     if(seatype == 'S'){
@@ -80,55 +81,60 @@ const Front = (props) => {
 
   // Linear search
   const linSearch = (name)=>{
-    
-    if(!contact){
-      alert('No contacts in your phonebook')
-      return
-    }
-    
+ 
+    let list = [];
     for(let i = 0; i < contact.length; i++){
         if(contact[i].name === name){
-            console.log('before')
-            console.log(searchRes)
-            setSearchRes([...searchRes , contact[i]])
-             console.log('after '+searchRes)
+            list.push(contact[i])
         }
     }
-    alert('Not found')
+    if(searchRes.size===0)
+      showToast('Not found','failure')
+    else
+      setSearchRes(list);
     return 
   }
 
   // Prefix search
   const preSearch =(pre , num)=>{
+
+    let list = [];
     for(let i = 0; i < contact.length; i++){
         if(contact[i].name.substring(0,num) === pre){
-            console.log('found')
+            console.log(contact[i].name)
             return 
         }
     }
-    console.log('Not found')
+ if(searchRes.size===0)
+      showToast('Not found','failure')
+    else
+      setSearchRes(list);
     return 
+  }
+
+  const showToast = (text,status) => {
+    setToast({status:status, text:text, visiblity:true});
   }
 
   return (
     <div className="App">
-      <Header form={()=>setshowForm(!showForm) } bool={showForm} bool={showCon} func={()=>setShowCon(!showCon)}/>
+      <Alert toast={toast_options}/>
+    <Bored/>
+     <Header form={()=>setshowForm(!showForm) } bool={showForm} bool={showCon} func={()=>setShowCon(!showCon)}/>
       <Button text='Add Contact' form={()=>setshowForm(!showForm)}/>
       <Button text='Display all contacts' form={()=>{
         setShowSearch(false)
         setShowCon(!showCon)}}/>
       {showForm && <AddContact add={addContact} form={()=>{
-        alert('Contact Saved!')
+        showToast('Contact Saved!','success')
         setshowForm(!showForm)}}/>}
-        }
       {showEdit && <AddContact add={addContact} form={()=>{
-        alert('Contact Saved!')
+        showToast('Contact Saved!','success')
         setShowEdit(!showEdit)}} name={editContact.name} ph_number={editContact.number} id={editContact.id}/>}
       {<DropDown type={type} />}
       <Search compare={compare}/>
       {showCon && <List del={del} edit={edit} contact={contact}/>}
       {showSearch && <List del={del} edit={edit} contact={searchRes}/>}
-      <Bored/>
     </div>
   );
 }

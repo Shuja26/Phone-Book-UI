@@ -1,11 +1,17 @@
 import {useState} from 'react'
 import Button from './Button'
 import Input from './Input'
+import Alert from './Alert'
 
 
 const AddContact = ({add, form,name, ph_number, id}) => {
   const[text, setText] = useState(name)
   const[number, setNumber] = useState(ph_number)
+   const[toast_options, setToast] = useState([])
+
+    const showToast = (text,status) => {
+    setToast({status:status, text:text, visiblity:true});
+  }
 
 
   function nameFieldOnChange(e){
@@ -19,13 +25,13 @@ const AddContact = ({add, form,name, ph_number, id}) => {
   const onSubmit = (e)=>{
   	e.preventDefault()
   	if(!text) {
-  		alert('Please enter a name')
+  		showToast('Please enter a name','failure')
   		return
   	}
       let isnum = /^\d{10}/.test(number)
       if(!isnum)
       {
-        alert('Please enter a 10 digit number')
+        showToast('Please enter a 10 digit number','failure')
         return 
       }
 
@@ -39,6 +45,7 @@ const AddContact = ({add, form,name, ph_number, id}) => {
 
   return (
     <div className='form-control'>
+     <Alert toast={toast_options}/>
     	<div>
     		<label>Name</label>
         <Input text ={'Name of contact'} value = {text} onChange={nameFieldOnChange} type={'text'} defaultValue={name}/>
